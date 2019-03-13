@@ -13,7 +13,7 @@ connection = KafkaConsumer(topic,bootstrap_servers='kafka_server:9092')
 produceradm = KafkaProducer(bootstrap_servers='kafka_server:9092')
 
 def hawk_stop(hostname,domain):
-        url = "http://xsnw50f525a:8080/job/HawkResolver/job/StopHawk/buildWithParameters?token=1938&HawkMachine="+str(hostname)+"&Domain="+str(domain)
+        url = "http://jenkins_host:8080/job/HawkResolver/job/StopHawk/buildWithParameters?token=1938&HawkMachine="+str(hostname)+"&Domain="+str(domain)
         r = req.get(url)
         r = str(r)
         with open(kafka_home+'kafkaLoggerReq.txt',"a") as reqwriter:
@@ -22,7 +22,7 @@ def hawk_stop(hostname,domain):
 
 
 def hawk_start(hostname,domain):
-        url = "http://xsnw50f525a:8080/job/HawkResolver/job/StartHawk/buildWithParameters?token=1938&HawkMachine="+str(hostname)+"&Domain="+str(domain)
+        url = "http://jenkins_host:8080/job/HawkResolver/job/StartHawk/buildWithParameters?token=1938&HawkMachine="+str(hostname)+"&Domain="+str(domain)
         r = req.get(url)
         r = str(r)
         with open(kafka_home+'kafkaLoggerReq.txt',"a") as reqwriter:
