@@ -18,7 +18,7 @@ def admin_stop(hostname,domain):
 
 
 def admin_start(hostname,domain):
-        url = "http://xsnw50f525a:8080/job/HawkResolver/job/AdminStart/buildWithParameters?token=1938&AdminMachine="+str(hostname)+"&Domain="+str(domain)
+        url = "http://jenkins_host:8080/job/HawkResolver/job/AdminStart/buildWithParameters?token=1938&AdminMachine="+str(hostname)+"&Domain="+str(domain)
         r = req.get(url)
 	r = str(r)
         with open(kafka_home+'kafkaLoggerReq.txt',"a") as reqwriter:
